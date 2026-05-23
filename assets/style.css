@@ -613,6 +613,7 @@ body:hover .slide-arrow {
   aspect-ratio: 4/5;
   overflow: hidden;
   display: block;
+  background: #e8e5de;
 }
 
 .work-item img {
