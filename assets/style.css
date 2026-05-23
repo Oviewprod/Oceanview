@@ -1240,7 +1240,9 @@ body:hover .slide-arrow {
 }
 
 @media (max-width: 600px) {
-  .nav { padding: 0 20px; }
+  .nav { padding: 0 12px; }
+  .nav__logo { width: 110px; }
+  .nav__logo img { width: 110px; height: 37px; }
   .nav__logo-text { display: none; }
   .nav__links { gap: 16px; }
   .nav__links a { font-size: 10px; letter-spacing: .12em; }
