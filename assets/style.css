@@ -712,10 +712,20 @@ body:hover .slide-arrow {
 
 .client-photos {
   padding: 24px 40px 80px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
   gap: 4px;
-  align-items: start;
+  align-items: flex-start;
+}
+
+.client-photos__col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.client-photos__col--right {
+  margin-top: 60px;
 }
 
 .client-photos img {
@@ -727,11 +737,6 @@ body:hover .slide-arrow {
 }
 
 .client-photos img:hover { opacity: .88; }
-
-/* Dernière photo seule sur sa ligne → pleine largeur */
-.client-photos img:last-child:nth-child(odd) {
-  grid-column: 1 / -1;
-}
 
 /* Zoom overlay (pages client) */
 .zoom-overlay {
@@ -1264,7 +1269,8 @@ body:hover .slide-arrow {
   .home-grid__items { grid-template-columns: 1fr; }
 
   .client-header { padding: 48px 20px 32px; }
-  .client-photos { padding: 20px 20px 60px; grid-template-columns: 1fr; }
+  .client-photos { padding: 20px 20px 60px; flex-direction: column; }
+  .client-photos__col--right { margin-top: 0; }
 
   .tarifs-header, .tarifs-body { padding-left: 20px; padding-right: 20px; }
   .about-hero__text, .about-intro, .about-sidebar { padding-left: 20px; padding-right: 20px; }

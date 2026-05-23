@@ -183,6 +183,29 @@
   });
 })();
 
+/* ─── Masonry stagger (pages client) ────────── */
+(function () {
+  const container = document.querySelector('.client-photos');
+  if (!container) return;
+
+  const imgs = Array.from(container.querySelectorAll('img'));
+  if (!imgs.length) return;
+
+  const leftCol = document.createElement('div');
+  leftCol.className = 'client-photos__col';
+  const rightCol = document.createElement('div');
+  rightCol.className = 'client-photos__col client-photos__col--right';
+
+  imgs.forEach((img, i) => {
+    if (i % 2 === 0) leftCol.appendChild(img);
+    else rightCol.appendChild(img);
+  });
+
+  container.innerHTML = '';
+  container.appendChild(leftCol);
+  container.appendChild(rightCol);
+})();
+
 /* ─── Zoom photos (pages client) ─────────────── */
 (function () {
   const photos = document.querySelector('.client-photos');
