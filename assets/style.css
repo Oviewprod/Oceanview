@@ -1261,6 +1261,18 @@ body:hover .slide-arrow {
   .tarifs-header, .tarifs-body { padding-left: 20px; padding-right: 20px; }
   .about-hero__text, .about-intro, .about-sidebar { padding-left: 20px; padding-right: 20px; }
 
+  .work-filter {
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    gap: 28px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .work-filter::-webkit-scrollbar { display: none; }
+  .work-filter__btn { white-space: nowrap; flex-shrink: 0; }
+
   .footer { padding: 20px; flex-direction: column; gap: 10px; text-align: center; }
 }
 

@@ -107,6 +107,15 @@
   let timer   = null;
   const DELAY = 5500;
 
+  /* Précharge la 1ère image avant de l'afficher */
+  const firstBg = slides[0].style.backgroundImage.slice(5, -2);
+  const img = new Image();
+  img.src = firstBg;
+  if (!slides[0].classList.contains('active')) {
+    slides[0].classList.remove('active');
+    img.onload = () => slides[0].classList.add('active');
+  }
+
   function go(idx) {
     slides[current].classList.remove('active');
     current = (idx + total) % total;
