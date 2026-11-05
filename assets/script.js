@@ -238,3 +238,30 @@
   overlay.addEventListener('click', e => { if (e.target === overlay) close(); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
 })();
+
+// ─── Video carousel ───────────────────────────
+(function () {
+  const carousel = document.querySelector('.video-carousel');
+  if (!carousel) return;
+
+  const slides = carousel.querySelectorAll('.video-carousel__slide');
+  const dots = carousel.querySelectorAll('.video-carousel__dot');
+  const prevBtn = carousel.querySelector('.video-carousel__btn--prev');
+  const nextBtn = carousel.querySelector('.video-carousel__btn--next');
+  let current = 0;
+
+  function goTo(index) {
+    const prevVideo = slides[current].querySelector('video');
+    prevVideo.pause();
+
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = (index + slides.length) % slides.length;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+  }
+
+  prevBtn.addEventListener('click', () => goTo(current - 1));
+  nextBtn.addEventListener('click', () => goTo(current + 1));
+  dots.forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
+})();
